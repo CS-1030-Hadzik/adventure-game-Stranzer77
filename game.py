@@ -30,3 +30,16 @@ A fault path lies ahead, leading deeper into the unknown...
 print (starting_area)
 
 
+#Ask the player for their first decision
+decision = input ("Do you wish to take the path (yes or no):").lower()
+
+#Respond based on the player decision
+if decision == "yes":
+    print(f"Brave choice , {player_name}! You step on the path and venture forward.")
+elif decision == "no":
+    print(f"{player_name},You decide to waiit. Perhaps courage will find you later" )
+else:
+    print("Confused, you stand still, unsure of what do do")
+
+
+ 
