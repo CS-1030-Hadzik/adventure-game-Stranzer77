@@ -39,3 +39,13 @@ def add_to_inventory(player, item):
     if item not in player.inventory:
         player.inventory.append(item)
         print(f"You picked up a {item}!")
+
+# Show inventory
+def show_inventory(player):
+    print(f"Inventory: {player.inventory}")
+
+# If the player stays still, they lose health
+def stay_still(player):
+    print("You stay where you are. The cold saps your energy. You lose 10 health.")
+    player.health -= 10
+    check_lose(player)
