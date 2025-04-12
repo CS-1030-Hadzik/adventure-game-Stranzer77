@@ -25,3 +25,17 @@ def welcome_player():
     name = input("What is your name, adventurer? ")
     print(f"\nWelcome, {name}! Your journey begins now.")
     return Player(name)
+
+# Describe the beginning place
+def describe_area():
+    print("""
+    You find yourself in a dark forest.
+    The sound of rustling leaves fills the air.
+    A faint path lies ahead, leading deeper into the unknown...
+""")
+
+# Add item to player's inventory
+def add_to_inventory(player, item):
+    if item not in player.inventory:
+        player.inventory.append(item)
+        print(f"You picked up a {item}!")
