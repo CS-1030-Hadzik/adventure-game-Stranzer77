@@ -49,3 +49,41 @@ def stay_still(player):
     print("You stay where you are. The cold saps your energy. You lose 10 health.")
     player.health -= 10
     check_lose(player)
+
+# First path - dark woods
+def explore_dark_woods(player):
+    print(f"{player.name}, you step into the dark woods...")
+    if "lantern" not in player.inventory:
+        add_to_inventory(player, "lantern")
+        player.has_lantern = True
+
+# Second path - mountain pass
+def explore_mountain_pass(player):
+    print(f"{player.name}, you head toward the mountain pass...")
+    if "map" not in player.inventory:
+        add_to_inventory(player, "map")
+        player.has_map = True
+
+# Third path - cave
+def explore_cave(player):
+    if player.has_lantern:
+        print(f"{player.name}, you bravely enter the dark cave, your lantern lighting the way.")
+        print("Inside the cave, you find hidden treasure!")
+        if "treasure" not in player.inventory:
+            add_to_inventory(player, "treasure")
+    else:
+        print("It's too dark to explore the cave without a lantern.")
+        player.health -= 10
+        check_lose(player)
+
+# Fourth path - hidden valley
+def explore_hidden_valley(player):
+    print(f"{player.name}, you study the map carefully...")
+    if player.has_map:
+        print("You discover a hidden path to a beautiful secret valley filled with rare herbs!")
+        if "rare herbs" not in player.inventory:
+            add_to_inventory(player, "rare herbs")
+    else:
+        print("You wander in circles. You can’t find the valley without a map.")
+        player.health -= 10
+        check_lose(player)
