@@ -87,3 +87,17 @@ def explore_hidden_valley(player):
         print("You wander in circles. You can’t find the valley without a map.")
         player.health -= 10
         check_lose(player)
+
+# Check if player loses
+def check_lose(player):
+    if player.health <= 0:
+        print(f"\n{player.name}, you have run out of health and collapse from exhaustion.")
+        print("Your adventure ends here.")
+        sys.exit()
+
+# Check if player wins
+def check_win(player):
+    if "treasure" in player.inventory and "rare herbs" in player.inventory:
+        print(f"\nCongratulations, {player.name}! You found both the treasure and the rare herbs")
+        print("You have conquered the mysterious forest!")
+        sys.exit()
