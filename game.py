@@ -17,3 +17,11 @@ class Player:
         self.health = 100  # Player starts with 100 health
         self.has_map = False
         self.has_lantern = False
+
+# Function to welcome the player
+def welcome_player():
+    print("Welcome to the Adventure Game!")
+    print("Your journey begins here...")
+    name = input("What is your name, adventurer? ")
+    print(f"\nWelcome, {name}! Your journey begins now.")
+    return Player(name)
