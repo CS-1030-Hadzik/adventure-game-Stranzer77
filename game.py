@@ -101,3 +101,45 @@ def check_win(player):
         print(f"\nCongratulations, {player.name}! You found both the treasure and the rare herbs")
         print("You have conquered the mysterious forest!")
         sys.exit()
+
+# Start of the game
+player = welcome_player()
+describe_area()
+
+# Game loop
+while True:
+    print("""
+You see several choices ahead:
+    1. Take the left path into the dark woods.
+    2. Take the right path toward the mountain pass.
+    3. Explore a nearby cave.
+    4. Search for a hidden valley.
+    5. Stay where you are.
+    Type 'i' to view your inventory.
+""")
+    print(f"Current Health: {player.health}")
+    choice = input("What will you do (1, 2, 3, 4, 5, or i): ").lower()
+
+    if choice == "1":
+        explore_dark_woods(player)
+    elif choice == "2":
+        explore_mountain_pass(player)
+    elif choice == "3":
+        explore_cave(player)
+    elif choice == "4":
+        explore_hidden_valley(player)
+    elif choice == "5":
+        stay_still(player)
+    elif choice == "i":
+        show_inventory(player)
+    else:
+        print("Invalid choice. Please try again.")
+
+    # Check for win or loss
+    check_win(player)
+
+    # Ask player if they want to keep playing
+    continue_game = input("Do you want to continue exploring? (yes or no): ").lower()
+    if continue_game != "yes":
+        print("Thanks for playing! See you next time.")
+        break
